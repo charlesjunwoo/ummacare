@@ -114,7 +114,7 @@ report = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><title>U
 <div class="meta">
 <p><b>A personal health-learning notebook with memory</b><br>
 Charles Park · MGT 409 (AI Foundations), Fall 2026 · Final project report · October 26, 2026<br>
-GitHub: <a href="{REPO}">{REPO}</a><br>
+GitHub (public): <a href="{REPO}">{REPO}</a> · clone: <code>git clone {REPO}.git</code> · then follow the README (<code>./start.sh</code>)<br>
 App link: runs locally from a fresh clone (<code>./start.sh</code>, then open http://127.0.0.1:8000); not hosted online.</p>
 </div>
 <p class="callout"><b>One sentence:</b> UmmaCare is a personal health journal for my mother that keeps her calendar, notes, symptoms, medicines, test results and
@@ -379,8 +379,9 @@ slides = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><title>U
 </style></head><body><div class="reveal"><div class="slides">
 
 <section><h1>UmmaCare</h1><p>A health-learning notebook with memory for my mom,<br>who lives with Hashimoto's and Sjögren's</p>
-<p class="small">Charles Park · MGT 409 Final Project · {REPO}</p>
-<p class="tag">Paste a YouTube link → timestamped notes → connected to what she already recorded</p></section>
+<p class="small">Charles Park · MGT 409 Final Project</p>
+<p class="small">Public repo: <a href="{REPO}">{REPO}</a><br><code>git clone {REPO}.git</code> → <code>./start.sh</code></p>
+<p class="tag">Videos, articles, threads and test results → connected to what she already recorded</p></section>
 
 <section><h2>The problem</h2><div class="cols"><div><ul>
 <li>Learns from <b>YouTube</b>, writes summaries in a <b>paper notebook</b>, logs symptoms in a <b>notes app</b></li>
@@ -440,7 +441,8 @@ slides = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><title>U
 <li>Bigger vetted reference set; measure connection precision</li>
 <li>Opt-in speech-to-text with visible cost</li>
 <li>Korean-language mode · phone-friendly symptom logging · encrypted storage</li></ul>
-<p class="small">Not medical advice · synthetic demo data · {REPO}</p></section>
+<p class="small">Not medical advice · synthetic demo data</p>
+<p class="small">Public repo: <a href="{REPO}">{REPO}</a> · <code>git clone {REPO}.git</code> → <code>./start.sh</code></p></section>
 
 </div></div>
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
