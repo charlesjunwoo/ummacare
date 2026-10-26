@@ -36,6 +36,9 @@ export function Dialog({ title, onClose, children, wide, foot }: { title: string
   );
 }
 
+// ---------------------------------------------------------------- one-line page instructions
+export const Guide = ({ children }: { children: ReactNode }) => <p className="guide">{children}</p>;
+
 // ---------------------------------------------------------------- icons (minimal, only where they help)
 export const SearchIcon = () => (
   <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden><circle cx="7" cy="7" r="5" /><path d="M11 11l3.5 3.5" /></svg>
@@ -105,49 +108,33 @@ export function RecordRef({ r }: { r: any }) {
 }
 
 // ---------------------------------------------------------------- connection
-export function Connection({ c, onChange, showNew = false }: { c: any; onChange?: () => void; showNew?: boolean }) {
-  const [edit, setEdit] = useState(false);
-  const [rel, setRel] = useState(c.relation);
-  const [note, setNote] = useState(c.user_correction || "");
-  const act = async (action: string) => {
-    await api.post(`/api/connections/${c.id}`, { action, relation: action === "correct" ? rel : undefined, note: note || undefined });
-    setEdit(false);
+// Two actions only (from pilot feedback): "Not relevant" removes a wrong match; "Save question for doctor"
+// appears where it helps (notes, symptoms) but not in the Discovery feed.
+export function Connection({ c, onChange, showNew = false, askDoctor = true }: { c: any; onChange?: () => void; showNew?: boolean; askDoctor?: boolean }) {
+  const act = async (action: "dismiss" | "restore") => {
+    await api.post(`/api/connections/${c.id}`, { action });
     onChange?.();
-    toast(action === "dismiss" ? "Dismissed" : action === "restore" ? "Restored" : "Correction saved");
+    toast(action === "dismiss" ? "Removed — it won't be suggested again" : "Restored");
   };
   return (
     <div className={`conn ${c.status === "dismissed" ? "dismissed" : ""}`}>
       <div className="row">
         <span className={`conn-kind ${c.relation}`}>{RELATION_LABELS[c.relation]}</span>
-        {c.status !== "active" && <span className="meta">· {c.status === "dismissed" ? "dismissed" : "corrected"} by you</span>}
+        {c.status === "dismissed" && <span className="meta">· marked not relevant</span>}
       </div>
       {showNew && <div className="small" style={{ marginTop: 4 }}>From <RecordRef r={c.new} /></div>}
       <dl>
-        <dt>Your record</dt><dd><RecordRef r={c.earlier} /></dd>
+        <dt>Linked to</dt><dd><RecordRef r={c.earlier} /></dd>
         <dt>What's new</dt><dd>{c.new_information}</dd>
         <dt>Why related</dt><dd>{c.why_related}</dd>
         <dt>Uncertain</dt><dd className="muted">{c.uncertain}</dd>
-        {c.interpretation && <><dt>AI's view</dt><dd className="muted"><i>{c.interpretation}</i></dd></>}
-        {c.user_correction && <><dt>Your note</dt><dd>{c.user_correction}</dd></>}
       </dl>
       {onChange && (
         <div className="row">
-          {c.clinician_question && <SaveQuestion text={c.clinician_question} originKind="connection" originId={c.id} />}
-          {c.status !== "dismissed" ? (
-            <>
-              <button className="btn ghost sm" onClick={() => setEdit(!edit)}>Correct</button>
-              <button className="btn ghost sm" onClick={() => act("dismiss")}>Not relevant</button>
-            </>
-          ) : <button className="btn ghost sm" onClick={() => act("restore")}>Restore</button>}
-        </div>
-      )}
-      {edit && (
-        <div className="row" style={{ marginTop: 8 }}>
-          <select className="select" value={rel} onChange={(e) => setRel(e.target.value)} aria-label="Relation">
-            {Object.entries(RELATION_LABELS).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
-          </select>
-          <input className="input grow" value={note} onChange={(e) => setNote(e.target.value)} placeholder="Optional note" aria-label="Correction note" />
-          <button className="btn primary sm" onClick={() => act("correct")}>Save</button>
+          {askDoctor && c.clinician_question && c.status !== "dismissed" && <SaveQuestion text={c.clinician_question} originKind="connection" originId={c.id} />}
+          {c.status !== "dismissed"
+            ? <button className="btn ghost sm" onClick={() => act("dismiss")}>Not relevant</button>
+            : <button className="btn ghost sm" onClick={() => act("restore")}>Restore</button>}
         </div>
       )}
     </div>
@@ -176,12 +163,40 @@ export function Sev({ n }: { n: number }) {
 // ---------------------------------------------------------------- log a symptom (focused form)
 export const COMMON_SYMPTOMS = ["fatigue", "brain fog", "dry eyes", "dry mouth", "joint pain", "muscle aches", "feeling cold", "trouble sleeping"];
 
+// Related videos, notes and records for one symptom entry: shown, not just counted.
+export function SymptomRelated({ sid, autoFind = false }: { sid: number; autoFind?: boolean }) {
+  const [items, setItems] = useState<any[] | null>(null);
+  const [busy, setBusy] = useState(false);
+  const [msg, setMsg] = useState("");
+  const load = () => api.get(`/api/symptoms/${sid}/related`).then(setItems);
+  const find = async () => {
+    setBusy(true); setMsg("");
+    try {
+      const r = await api.post(`/api/symptoms/${sid}/connect`);
+      if (!r.connections) setMsg(r.message || "Nothing closely related yet.");
+      await load();
+    } catch (e: any) { setMsg(e.message); } finally { setBusy(false); }
+  };
+  useEffect(() => { load().then(() => { if (autoFind) find(); }); }, [sid]);
+  if (items === null) return null;
+  const active = items.filter((c) => c.status !== "dismissed");
+  return (
+    <div style={{ padding: "4px 0 8px" }}>
+      {busy && <p className="meta">Looking for related videos, notes and records…</p>}
+      {!busy && active.length === 0 && (
+        <div className="row"><span className="meta">{msg || "No related records yet."}</span>
+          {!autoFind && <button className="btn sm" onClick={find}>Find related</button>}</div>
+      )}
+      {active.map((c) => <Connection key={c.id} c={c} onChange={load} />)}
+    </div>
+  );
+}
+
 export function SymptomDialog({ onClose, onSaved }: { onClose: () => void; onSaved?: () => void }) {
   const today = new Date().toISOString().slice(0, 10);
   const [f, setF] = useState({ symptom: "", occurred_on: today, severity: 5, duration: "", context: "", details: "" });
   const [err, setErr] = useState("");
   const [saved, setSaved] = useState<number | null>(null);
-  const [conn, setConn] = useState<string>("");
   const set = (k: string, v: any) => setF({ ...f, [k]: v });
   const save = async () => {
     if (!f.symptom.trim()) return setErr("Choose or type a symptom.");
@@ -193,13 +208,9 @@ export function SymptomDialog({ onClose, onSaved }: { onClose: () => void; onSav
   };
   if (saved) {
     return (
-      <Dialog title="Symptom saved" onClose={onClose}
-        foot={<><button className="btn" onClick={onClose}>Done</button>{!conn && <button className="btn primary" onClick={async () => {
-          setConn("Looking…");
-          try { const r = await api.post(`/api/symptoms/${saved}/connect`); setConn(r.connections ? `${r.connections} related record(s) found — see the entry's video or note.` : r.message || "Nothing closely related."); }
-          catch (e: any) { setConn(e.message); }
-        }}>Find related videos and notes</button>}</>}>
-        <p className="small muted">{conn || "UmmaCare can look for related videos and notes you saved before (uses AI)."}</p>
+      <Dialog title="Symptom saved" wide onClose={onClose} foot={<button className="btn primary" onClick={onClose}>Done</button>}>
+        <div className="voice" style={{ marginTop: 0 }}>Related videos, notes and records</div>
+        <SymptomRelated sid={saved} autoFind />
       </Dialog>
     );
   }
@@ -281,7 +292,7 @@ export function NoteDialog({ onClose, onSaved }: { onClose: () => void; onSaved:
       {mode === "photo" && (
         <div className="field">
           <input type="file" accept="image/png,image/jpeg,image/webp" onChange={(e) => e.target.files?.[0] && readPhoto(e.target.files[0])} />
-          <div className="hint" style={{ marginTop: 6 }}>The photo is kept as is. Check the text the AI read; unreadable words are marked [illegible].</div>
+          <div className="hint" style={{ marginTop: 6 }}>The photo is kept as is. Check the text that was read; unreadable words are marked [illegible].</div>
           {busy && <p className="small muted" style={{ marginTop: 8 }}>Reading…</p>}
           {img && (
             <div className="row" style={{ marginTop: 12, alignItems: "flex-start" }}>

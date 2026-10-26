@@ -206,7 +206,7 @@ then using the assistant from the Records page, with the notebook holding synthe
 <tr><td>4</td><td>Frames</td><td>Deterministic</td><td>No uploaded file → every card says “Frame unavailable” with the reason; the timestamp link is kept.</td></tr>
 <tr><td>5</td><td>Retrieval</td><td>Deterministic</td><td>FTS5 search per moment over notes, symptoms, questions and other videos; 2 reference passages per moment from the NIDDK/NIAMS collection.</td></tr>
 <tr><td>6</td><td>Connections</td><td>Agent skill</td><td>1 request, 5,703 input, 1,915 output tokens, 20.8 s, $0.0015 → 8 connections to her notes, saved questions and other sources (e.g. her Sep 2 note about gritty eyes and her question “Would tear-duct plugs help my dry eyes?”); 8 claim checks (2 supported, 6 not established).</td></tr>
-<tr><td>7</td><td>Review</td><td>Umma</td><td>Cards show the four voices; each connection can be dismissed or corrected; questions can be saved for the doctor.</td></tr>
+<tr><td>7</td><td>Review</td><td>Umma</td><td>Cards keep the source's claims, her records and the references apart; a wrong connection can be marked “Not relevant”.</td></tr>
 <tr><td>8</td><td>Ask (from the Records page)</td><td>Agent + tools</td><td>“What have I saved about fatigue?” → <code>search_my_records</code> → answer citing dated symptom entries, notes and a saved question; 2 requests, 4,051 input (3,168 cached) / 389 output tokens, 8.2 s, $0.00031.</td></tr>
 <tr><td>9</td><td>Order request</td><td>Agent + review</td><td>“Please order a refill of my levothyroxine 75 mcg, 90 tablets.” → <code>propose_order</code> → a draft in the review queue (Fig. 9); on approval it becomes a <i>draft</i> order she places herself. Nothing is bought.</td></tr>
 </table>
@@ -312,20 +312,28 @@ label copier left clock times empty because the label didn't state them; the pho
 human review; FTS retrieval can miss relevant passages, which makes some true claims “not established”; and a determined user can always type misinformation into her own notes.</p>
 
 <h2>7. Impact</h2>
-<p class="callout warn"><b>Status: not yet tested with my mother.</b> I have no real user results yet, so this section reports only what my tests measured and what is newly
-possible. I will not report task completion, time saved, or quotes until she completes the worksheet (<code>evidence/user_testing_worksheet.md</code>).</p>
-<table><tr><th>Measure</th><th>Result</th><th>Source</th></tr>
-<tr><td>Time from pasting a link to finished cards + connections</td><td>{main_s} s for the UCLA Hashimoto's video (including the printable brief); ~47 s for the Sjögren's video</td><td>My tests (evidence log)</td></tr>
-<tr><td>Community threads</td><td>A pasted thread (synthetic) became 4 attributed takeaways; the anecdotal “gluten-free fixes it” claim was labeled not established; no usernames stored</td><td>My tests</td></tr>
-<tr><td>Finding a value in a test result</td><td>“What did my last thyroid blood test show?” answered in ~4 s from the uploaded lab report, values as written</td><td>My tests, synthetic lab report</td></tr>
-<tr><td>“Where did I get the idea to change my diet?”</td><td>Answered in {T['Chat: Where did I get the idea to change my diet?']['seconds']} s, tracing it to her Aug 12 note about a YouTube doctor and contrasting it with Dr. Kim's Aug 20 instruction</td><td>My tests, synthetic records</td></tr>
-<tr><td>Conflicts surfaced automatically</td><td>The demo lecture's “gluten-free reverses Hashimoto's” vs. her recorded instruction from Dr. Kim (found in every run). In an earlier development run the Ken Berry video's diet and desiccated-thyroid claims were also flagged; in the final run they were labeled “related/adds detail” instead — results vary between runs.</td><td>My tests</td></tr>
-<tr><td>Cost to run for her</td><td>≈{money(tok['per_user_month_usd'])}/month of model usage</td><td>Measured usage × assumptions</td></tr>
-<tr><td>Her task completion, time vs. notebook, satisfaction</td><td><b>Not measured yet</b></td><td>Planned: worksheet tasks 1–9; baseline B2 vs. task 7</td></tr>
+<p class="callout"><b>Pilot test (October 26, 2026).</b> One real user tried UmmaCare on their own and wrote notes on what worked and what didn't.
+No task times were recorded, so I report their findings and the changes they caused — not time saved. Every change was re-checked in the browser.</p>
+<table><tr><th>What the pilot user noted</th><th>What I changed</th><th>Checked</th></tr>
+<tr><td>Wanted short instructions at the top of each page.</td><td>A one-line guide on every page (Calendar, Journal, Discovery, Records, Settings, note, source and record detail).</td><td>Present on all 7 page types</td></tr>
+<tr><td>After saving a symptom: “1 related record found”, but no way to see it — “cannot tell if this is useful”.</td><td>Related videos, notes and records are now shown, with links, in the save dialog, the Symptoms list and the calendar day.</td><td>New symptom → 3 linked items shown in the dialog</td></tr>
+<tr><td>Marking a connection “correct” didn't seem to do anything; “Not relevant” and “save for doctor” made sense.</td><td>Removed “Correct”; kept “Not relevant” and “Save question for doctor” on notes and symptoms.</td><td>No “Correct” buttons remain</td></tr>
+<tr><td>Video processing “worked well”, but too many options (correct, not relevant, save, save question); takeaways needn't go to the brief.</td><td>Discovery takeaways now have only “Not relevant”; they stay in the Discovery feed.</td><td>No Save / Ask-doctor buttons on takeaways</td></tr>
+<tr><td>“AI's view” and “uses AI” labels not needed.</td><td>Removed from connection cards and button text (the consent dialog and Settings still explain AI use).</td><td>Text search of the UI</td></tr>
+<tr><td>Article links (not just Reddit) should go in the same bar as videos.</td><td>The bar now reads “Paste a video, article or Reddit link”; “Paste text instead” is the fallback.</td><td>Article link → 41 paragraphs read</td></tr>
 </table>
-<p>The diet-idea answer from the test run, for illustration: <blockquote>{diet_ans[:520]}…</blockquote>
-<b>What is newly possible:</b> before UmmaCare, finding the origin of an idea meant flipping through a notebook and a notes app with no link to the video's timestamp;
-now every connection points to the dated record and the exact moment in the video. The planned test compares her notebook search time (B2) with UmmaCare (task 7).</p>
+<div class="two">
+<figure><img src="{img('26_symptoms_related_open.png', 1100)}"><figcaption>Fig. 13. After the pilot: a symptom's related videos and notes are shown with links (Symptoms list; also in the save dialog and calendar day).</figcaption></figure>
+<figure><img src="{img('28_discovery_simplified.png', 1100)}"><figcaption>Fig. 14. A Discovery takeaway with only “Not relevant”, and the page's one-line guide.</figcaption></figure>
+</div>
+<table><tr><th>Measured in my tests</th><th>Result</th></tr>
+<tr><td>Link → takeaways + connections + brief</td><td>{main_s} s (UCLA Hashimoto's video)</td></tr>
+<tr><td>“Where did I get the idea to change my diet?”</td><td>{T['Chat: Where did I get the idea to change my diet?']['seconds']} s, traced to her Aug 12 note and contrasted with Dr. Kim's Aug 20 instruction (synthetic records)</td></tr>
+<tr><td>“What did my last thyroid blood test show?”</td><td>~4 s from the uploaded lab report, values as written</td></tr>
+<tr><td>Cost to run for one person</td><td>≈{money(tok['per_user_month_usd'])}/month of model usage</td></tr>
+</table>
+<p><b>What is newly possible:</b> an idea she meets in a video, article or thread is linked to the dated note, symptom or test result it relates to, with the source one click away.
+<b>Still to measure:</b> task times against her notebook (worksheet baseline B2 vs. task 7).</p>
 
 <h2>8. Limits and next steps</h2>
 <p><b>What doesn't work yet.</b></p>
@@ -334,7 +342,8 @@ now every connection points to the dated record and the exact moment in the vide
 <li><b>Reddit is paste-only.</b> Reddit blocks unregistered apps (we got HTTP 403/429), so she copies a thread in; reading threads automatically would need a registered Reddit API app. Some article sites block automatic reading too; those need pasting.</li>
 <li><b>No frames from YouTube links.</b> By design (YouTube's terms); real frames require her own copy of the video. Most cards will be text-only.</li>
 <li><b>Reference coverage is tiny</b> (21 passages from two pages), so many claims are “not established”, sometimes even when a broader source would support them (e.g. “low hormone levels can cause fatigue” was not matched to the symptom passage).</li>
-<li><b>Connection quality varies.</b> Some “related” links are loose; dismiss/correct exists for that, but I haven't measured precision with her.</li>
+<li><b>Connection quality varies.</b> Some “related” links are loose; “Not relevant” removes them, but I haven't measured precision on real notes.</li>
+<li><b>No timed user test yet.</b> The pilot produced written feedback, not task times; the before/after search-time comparison is still to do.</li>
 <li><b>No real booking or purchasing</b>; appointment and order requests are drafts she sends or places herself. Scanned multi-page PDFs are read only from their first 3 page images.</li>
 <li>Single user, local only, no login or encryption at rest; the demo runs on synthetic records.</li>
 <li><b>No user testing yet</b> — the biggest gap.</li>
@@ -384,7 +393,7 @@ slides = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><title>U
 <li>ChatGPT, NotebookLM, YouTube summaries: summarize a source — <b>no memory of her dated symptoms and doctor's instructions</b></li>
 <li>Bearable / CareClinic / Medisafe: tracking — <b>no link to what she learns</b></li>
 <li>UmmaCare: every video moment → linked to earlier records as <b>repeats / adds detail / conflicts</b></li>
-<li>Four voices kept apart: <b>video claims · her records · NIH references · AI's tentative view</b></li>
+<li>Voices kept apart: <b>what a source claims · what she recorded · what NIH references say</b></li>
 <li>Discovery: videos, articles, Reddit threads (r/Hashimotos, r/thyroid, r/Biohackers…) and clippings — community posts labeled as anecdotes</li>
 <li>Test results kept with her notes — copied as written, never interpreted</li>
 <li>An assistant on every page that drafts (never sends or buys) appointment and refill requests</li></ul></section>
@@ -414,11 +423,16 @@ slides = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><title>U
 <li>Budget cap, request limit, and review gates all tested</li>
 <li><b>{passed}/{len(tests)}</b> automated checks passed</li></ul></div></div></section>
 
-<section><h2>Impact so far — honestly</h2>
-<p class="warn"><b>Not yet tested with my mother.</b> No time-saved or satisfaction numbers until she completes the worksheet.</p>
-<ul><li>Link → cards + connections + brief: <b>{main_s} s</b> (test)</li>
-<li>“Where did I get the diet idea?” traced to a dated note in <b>{T['Chat: Where did I get the idea to change my diet?']['seconds']} s</b> (test, synthetic data)</li>
-<li>Video-vs-doctor conflicts surfaced automatically</li></ul></section>
+<section><h2>Pilot test → changes</h2>
+<p class="warn"><b>One real user tried it and wrote notes.</b> No task times yet — findings and fixes only.</p>
+<div class="cols"><ul class="small" style="font-size:0.72em">
+<li>“1 related record found” but couldn't see it → related items now <b>shown with links</b></li>
+<li>“Correct” did nothing visible → <b>removed</b>; kept “Not relevant” + “Save question”</li>
+<li>Too many buttons on video takeaways → <b>only “Not relevant”</b></li>
+<li>Wanted instructions → <b>one-line guide on every page</b></li>
+<li>“AI's view” / “uses AI” not needed → <b>removed</b></li>
+<li>Articles in the same link bar → <b>reworded</b>; YouTube processing “worked well”</li></ul>
+<img src="{crop('26_symptoms_related_open.png', (0.28, 0.25, 0.86, 0.95), 900)}"></div></section>
 
 <section><h2>Next steps</h2><ul>
 <li>User test with Umma (9 tasks, timed against her notebook)</li>

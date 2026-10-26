@@ -77,7 +77,7 @@ export default function BriefPage({ embedded = false }: { embedded?: boolean }) 
         })}
       </div>
       <div className="row" style={{ justifyContent: "space-between", marginTop: 20 }}>
-        <label className="check"><input type="checkbox" checked={useAi} onChange={(e) => setUseAi(e.target.checked)} />Add AI-drafted talking points <span className="hint">(sends only the selected items)</span></label>
+        <label className="check"><input type="checkbox" checked={useAi} onChange={(e) => setUseAi(e.target.checked)} />Add suggested talking points</label>
         <button className="btn primary" disabled={busy || sel.size === 0} onClick={make}>{busy ? "Preparing…" : `Create brief (${sel.size})`}</button>
       </div>
       {err && <div className="error">{err}</div>}

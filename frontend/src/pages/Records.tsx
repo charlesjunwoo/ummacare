@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { api, DOC_TYPES, fmtDate, go } from "../api";
-import { Dialog, toast } from "../components";
+import { Dialog, Guide, toast } from "../components";
 import Medication from "./Medication";
 
 export function RecordsPage({ tab = "documents" }: { tab?: string }) {
@@ -12,9 +12,10 @@ export function RecordsPage({ tab = "documents" }: { tab?: string }) {
   return (
     <div className="page">
       <div className="head">
-        <div><h1>Records</h1><div className="sub">Test results, documents and your medication.</div></div>
+        <div><h1>Records</h1></div>
         {tab !== "medication" && <button className="btn primary" onClick={() => setUploading(true)}>Upload document</button>}
       </div>
+      <Guide>“Upload document” keeps a test result or report and copies its numbers for you to check · Medication lists your medicines and refill requests.</Guide>
       <nav className="seg" aria-label="Records sections">
         <a href="#/records" className={tab !== "medication" ? "on" : ""}>Documents</a>
         <a href="#/records/medication" className={tab === "medication" ? "on" : ""}>Medication</a>
@@ -102,6 +103,7 @@ export function RecordDetail({ id }: { id: number }) {
         <h1>{d.title.replace("[Demo] ", "")}</h1>
         <a className="btn" href={d.url} target="_blank" rel="noreferrer">Open original</a>
       </div>
+      <Guide>Your original file is on the left · The numbers are copied exactly as written — ask your clinician what they mean for you.</Guide>
       <div style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) minmax(0,1fr)", gap: 32 }} className="rec-grid">
         <div>
           {d.mime === "application/pdf"
@@ -133,11 +135,11 @@ export function RecordDetail({ id }: { id: number }) {
             <>
               {d.status !== "reviewed" && !aiRead && (
                 <div className="notice" style={{ marginBottom: 16 }}>
-                  Fill in the details yourself, or let AI copy them from the document for you to check.
-                  <div style={{ marginTop: 8 }}><button className="btn sm primary" disabled={busy} onClick={read}>{busy ? "Reading…" : "Copy details with AI"}</button></div>
+                  Fill in the details yourself, or have them copied from the document for you to check.
+                  <div style={{ marginTop: 8 }}><button className="btn sm primary" disabled={busy} onClick={read}>{busy ? "Reading…" : "Copy details from the document"}</button></div>
                 </div>
               )}
-              {aiRead && d.status !== "reviewed" && <p className="notice warn" style={{ marginBottom: 16 }}>Copied by AI{form.read_by === "pdf_text" ? " from the PDF text (values checked against it)" : " from the image"}. Compare with the original before saving.{form._notes ? ` ${form._notes}` : ""}</p>}
+              {aiRead && d.status !== "reviewed" && <p className="notice warn" style={{ marginBottom: 16 }}>Copied{form.read_by === "pdf_text" ? " from the PDF text (values checked against it)" : " from the image"}. Compare with the original before saving.{form._notes ? ` ${form._notes}` : ""}</p>}
               {form._flags?.length > 0 && <p className="notice warn">This document contains instruction-like text; it was treated as content only.</p>}
               <div className="field"><label htmlFor="dt">Title</label><input id="dt" className="input" value={form.title} onChange={(e) => set("title", e.target.value)} /></div>
               <div className="split">

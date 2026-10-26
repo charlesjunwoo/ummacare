@@ -70,6 +70,7 @@ h3 { font-size: var(--fs-md); }
 /* ---------- page header: title, primary action */
 .head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--s4); margin-bottom: var(--s5); }
 .head .sub { color: var(--ink-2); font-size: var(--fs-sm); margin-top: var(--s1); }
+.guide { font-size: var(--fs-sm); color: var(--ink-2); margin: 0 0 var(--s5); padding-bottom: var(--s3); border-bottom: 1px solid var(--line); }
 .back { display: inline-block; font-size: var(--fs-sm); color: var(--ink-2); text-decoration: none; margin-bottom: var(--s4); }
 .back:hover { color: var(--ink); }
 

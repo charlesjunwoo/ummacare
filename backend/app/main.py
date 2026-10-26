@@ -562,7 +562,24 @@ class SymptomIn(BaseModel):
 
 @app.get("/api/symptoms")
 def list_symptoms():
-    return db.rows("SELECT * FROM symptoms ORDER BY occurred_on DESC, id DESC")
+    return db.rows("""SELECT s.*, (SELECT COUNT(*) FROM connections c WHERE c.status!='dismissed' AND
+                      ((c.from_kind='symptom' AND c.from_id=s.id) OR (c.to_kind='symptom' AND c.to_id=s.id))) AS related
+                      FROM symptoms s ORDER BY occurred_on DESC, id DESC""")
+
+
+@app.get("/api/symptoms/{sid}/related")
+def symptom_related(sid: int):
+    """Connections for one symptom entry, shown wherever the entry appears."""
+    cs = db.rows("""SELECT * FROM connections WHERE (from_kind='symptom' AND from_id=?) OR (to_kind='symptom' AND to_id=?)
+                    ORDER BY status='dismissed', id DESC""", (sid, sid))
+    out = []
+    for c in cs:
+        v = _connection_view(c)
+        if v:
+            if c["to_kind"] == "symptom" and c["to_id"] == sid:   # show the OTHER record as "your record"
+                v = {**v, "new": v["earlier"], "earlier": v["new"]}
+            out.append(v)
+    return out
 
 
 @app.post("/api/symptoms")

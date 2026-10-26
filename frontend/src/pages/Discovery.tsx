@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { api, fmtDate, go, VERDICT_LABELS } from "../api";
-import { Connection, Dialog, SaveQuestion, Step, Steps, toast } from "../components";
+import { Connection, Dialog, Guide, Step, Steps } from "../components";
 
 export const KIND_LABEL: Record<string, string> = { youtube: "Video", video_file: "Video", article: "Article", reddit: "Community thread", image: "Photo / clipping" };
 const VOICE: Record<string, string> = { youtube: "The speaker says", video_file: "The speaker says", article: "The article says", reddit: "Commenters say", image: "The clipping says" };
@@ -80,14 +80,15 @@ export function DiscoveryPage() {
   return (
     <div className="page">
       <div className="head">
-        <div><h1>Discovery</h1><div className="sub">Videos, articles, community threads and clippings — and what they say.</div></div>
+        <div><h1>Discovery</h1></div>
       </div>
+      <Guide>Paste a link to a YouTube video, article or Reddit thread to get its key takeaways · Paste text or upload a photo when a link can't be read · Open one to see how it relates to your notes.</Guide>
       <div className="row">
-        <input className="input grow" value={url} onChange={(e) => setUrl(e.target.value)} onKeyDown={(e) => e.key === "Enter" && add()} placeholder="Paste a YouTube, article or Reddit link" aria-label="Link" />
+        <input className="input grow" value={url} onChange={(e) => setUrl(e.target.value)} onKeyDown={(e) => e.key === "Enter" && add()} placeholder="Paste a video, article or Reddit link" aria-label="Link" />
         <button className="btn primary" disabled={busy || !url.trim()} onClick={add}>{busy ? "Working…" : "Add"}</button>
       </div>
       <div className="row" style={{ marginTop: 6 }}>
-        <button className="btn ghost sm" onClick={() => setPaste(true)}>Paste a thread or article</button>
+        <button className="btn ghost sm" onClick={() => setPaste(true)}>Paste text instead</button>
         <button className="btn ghost sm" onClick={() => setPhoto(true)}>Upload a photo or clipping</button>
         <button className="btn ghost sm" onClick={() => setVideoFile(true)}>Add a video without a YouTube link</button>
       </div>
@@ -141,7 +142,7 @@ function Communities() {
     <details className="more" style={{ marginTop: 16 }}>
       <summary>Find community threads on Reddit</summary>
       <div style={{ paddingLeft: 14 }}>
-        <p className="meta">Opens Reddit in your browser. Copy a useful thread and add it with “Paste a thread or article”. UmmaCare removes usernames, and treats what people share as personal experience, not evidence.</p>
+        <p className="meta">Opens Reddit in your browser. Copy a useful thread and add it with “Paste text instead”. UmmaCare removes usernames, and treats what people share as personal experience, not evidence.</p>
         <div className="row">
           <input className="input" style={{ width: 220 }} value={topic} onChange={(e) => setTopic(e.target.value)} aria-label="Topic" placeholder="Topic, e.g. fatigue" />
           {subs.map((s) => <a key={s} className="btn sm ghost" target="_blank" rel="noreferrer" href={`https://www.reddit.com/r/${s}/search/?q=${q}&restrict_sr=1&sort=relevance&t=year`}>r/{s}</a>)}
@@ -209,7 +210,7 @@ function PhotoDialog({ onClose }: { onClose: () => void }) {
   };
   return (
     <Dialog title="Upload a photo or clipping" onClose={onClose}>
-      <p className="small muted">A magazine cutout, a leaflet, or a screenshot of a post. The photo is kept as is; AI reads the text for takeaways.</p>
+      <p className="small muted">A magazine cutout, a leaflet, or a screenshot of a post. The photo is kept as is and its text is read for takeaways.</p>
       <div className="field"><label htmlFor="ph">Title <span className="hint">optional</span></label><input id="ph" className="input" value={title} onChange={(e) => setTitle(e.target.value)} /></div>
       <input type="file" accept="image/png,image/jpeg,image/webp" onChange={(e) => e.target.files?.[0] && upload(e.target.files[0])} />
       {steps.length > 0 && <Steps steps={steps} />}
@@ -263,6 +264,7 @@ export function SourceDetail({ id }: { id: number }) {
         <h1>{v.title || "Untitled"}</h1>
         {original && <a className="btn" href={original} target="_blank" rel="noreferrer">Open original</a>}
       </div>
+      <Guide>Key takeaways from this {KIND_LABEL[v.kind].toLowerCase()} · Open “Related to your records” to see what it connects to · “Not relevant” removes a wrong match.</Guide>
       {v.kind === "reddit" && <p className="notice" style={{ marginBottom: 16 }}>People's personal experiences — useful for questions, not evidence. Usernames were removed.</p>}
       {v.image_path && <img src={`/media/${v.image_path}`} alt="Your photo" style={{ width: 260, borderRadius: 6, border: "1px solid var(--line)", marginBottom: 16 }} />}
       {v.summary && <><div className="voice">{v.kind === "reddit" ? "What the thread covers" : "What it says"}</div><p className="prose">{v.summary}</p></>}
@@ -332,7 +334,6 @@ export function SourceDetail({ id }: { id: number }) {
 }
 
 function Takeaway({ m, kind, reload }: { m: any; kind: string; reload: () => void }) {
-  const [saved, setSaved] = useState(!!m.saved);
   const nConn = m.connections.filter((c: any) => c.status !== "dismissed").length + m.incoming.length;
   const video = isVideo(kind);
   const body = (
@@ -360,14 +361,10 @@ function Takeaway({ m, kind, reload }: { m: any; kind: string; reload: () => voi
         <summary>Related to your records ({nConn})</summary>
         <div style={{ paddingLeft: 14 }}>
           {nConn === 0 && <p className="meta">Nothing related found.</p>}
-          {m.connections.map((c: any) => <Connection key={c.id} c={c} onChange={reload} />)}
-          {m.incoming.map((c: any) => <Connection key={"in" + c.id} c={c} showNew onChange={reload} />)}
+          {m.connections.map((c: any) => <Connection key={c.id} c={c} onChange={reload} askDoctor={false} />)}
+          {m.incoming.map((c: any) => <Connection key={"in" + c.id} c={c} showNew onChange={reload} askDoctor={false} />)}
         </div>
       </details>
-      <div className="row" style={{ marginTop: 8 }}>
-        <button className="btn sm" onClick={async () => { await api.post(`/api/moments/${m.id}/save?saved=${!saved}`); setSaved(!saved); toast(saved ? "Removed from saved" : "Saved — offered in your appointment brief"); }}>{saved ? "Saved" : "Save"}</button>
-        <SaveQuestion text={`About “${m.heading}”: is this true for me?`} originKind="moment" originId={m.id} label="Ask my doctor" />
-      </div>
     </div>
   );
   if (!video) return <article style={{ padding: "24px 0", borderTop: "1px solid var(--line)" }}>{body}</article>;

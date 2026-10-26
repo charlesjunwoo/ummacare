@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { api, CATEGORY_LABELS, fmtDate, fmtDateTime, go } from "../api";
-import { Dialog, Sev, SymptomDialog, toast } from "../components";
+import { Dialog, Guide, Sev, SymptomDialog, SymptomRelated, toast } from "../components";
 import BriefPage from "./Brief";
 
 const TABS = [["month", "Month"], ["symptoms", "Symptoms"], ["appointments", "Appointments"], ["brief", "Appointment brief"]];
@@ -15,6 +15,7 @@ export default function CalendarPage({ tab = "month", tick }: { tab?: string; ti
   return (
     <div className="page">
       <h1 className="sr-only">Calendar</h1>
+      <Guide>Tap a day to see what happened · “Log symptom” records how you feel · Approve or reject what the assistant drafted · Prepare your appointment brief in its tab.</Guide>
       <Pending key={`p${tick}${v}`} onChange={reload} />
       <Today key={`t${tick}${v}`} />
       <div className="row" style={{ alignItems: "flex-end", marginBottom: 24 }}>
@@ -156,7 +157,10 @@ function Day({ day }: { day: string }) {
         <div key={a.id} className="dose"><span className="time">{a.starts_at?.slice(11, 16)}</span><span className="grow">{a.title.replace("[Demo] ", "")} · {a.clinician}</span><span className="meta">{APPT_STATUS[a.status]}</span></div>))}</Block>}
       {doctor.length > 0 && <Block title="Doctor's notes">{doctor.map((n: any) => <NoteLine key={n.id} n={n} />)}</Block>}
       {d.symptoms.length > 0 && <Block title="Symptoms">{d.symptoms.map((s: any) => (
-        <div key={s.id} className="dose"><span className="grow" style={{ textTransform: "capitalize" }}>{s.symptom}</span><Sev n={s.severity} /><span className="meta">{[s.duration, s.context].filter(Boolean).join(" · ")}</span></div>))}</Block>}
+        <details key={s.id} className="more" style={{ borderBottom: "1px solid var(--line)" }}>
+          <summary><span style={{ textTransform: "capitalize", color: "var(--ink)" }}>{s.symptom}</span> <Sev n={s.severity} /> <span className="meta">{[s.duration, s.context].filter(Boolean).join(" · ")} · related</span></summary>
+          <div style={{ paddingLeft: 14 }}><SymptomRelated sid={s.id} /></div>
+        </details>))}</Block>}
       {other.length > 0 && <Block title="Notes, diet and activity">{other.map((n: any) => <NoteLine key={n.id} n={n} />)}</Block>}
       {d.documents.length > 0 && <Block title="Records">{d.documents.map((x: any) => <div key={x.id} className="dose"><a href={`#/records/${x.id}`}>{x.title}</a></div>)}</Block>}
     </section>
@@ -174,7 +178,7 @@ const NoteLine = ({ n }: { n: any }) => (
 function Symptoms() {
   const [list, setList] = useState<any[] | null>(null);
   const [filter, setFilter] = useState("");
-  const [busy, setBusy] = useState<number | null>(null);
+  const [open, setOpen] = useState<number | null>(null);
   const load = () => api.get("/api/symptoms").then(setList);
   useEffect(() => { load(); }, []);
   const names = Array.from(new Set((list || []).map((s) => s.symptom)));
@@ -190,19 +194,20 @@ function Symptoms() {
       {shown.length === 0 && <p className="empty">No entries yet.</p>}
       <ul className="list">
         {shown.map((s) => (
-          <li key={s.id} className="item" style={{ cursor: "default", alignItems: "center" }}>
-            <span className="meta" style={{ width: 90 }}>{fmtDate(s.occurred_on)}</span>
-            <div className="grow">
-              <div style={{ textTransform: "capitalize" }}>{s.symptom}</div>
-              <div className="meta">{[s.duration && `lasted ${s.duration}`, s.context, s.details].filter(Boolean).join(" · ")}{s.is_demo ? " · demo" : ""}</div>
+          <li key={s.id}>
+            <div className="item" style={{ cursor: "default", alignItems: "center" }}>
+              <span className="meta" style={{ width: 90 }}>{fmtDate(s.occurred_on)}</span>
+              <div className="grow">
+                <div style={{ textTransform: "capitalize" }}>{s.symptom}</div>
+                <div className="meta">{[s.duration && `lasted ${s.duration}`, s.context, s.details].filter(Boolean).join(" · ")}{s.is_demo ? " · demo" : ""}</div>
+              </div>
+              <Sev n={s.severity} />
+              <button className="btn ghost sm" aria-expanded={open === s.id} onClick={() => setOpen(open === s.id ? null : s.id)}>
+                {s.related ? `Related (${s.related})` : "Related"}
+              </button>
+              <button className="btn ghost sm" aria-label="Delete entry" onClick={async () => { if (confirm("Delete this entry?")) { await api.del(`/api/symptoms/${s.id}`); load(); } }}>Delete</button>
             </div>
-            <Sev n={s.severity} />
-            <button className="btn ghost sm" disabled={busy === s.id} onClick={async () => {
-              setBusy(s.id);
-              try { const r = await api.post(`/api/symptoms/${s.id}/connect`); toast(r.connections ? `${r.connections} related record(s) found` : r.message || "Nothing closely related"); }
-              catch (e: any) { toast(e.message); } finally { setBusy(null); }
-            }}>{busy === s.id ? "Looking…" : "Related"}</button>
-            <button className="btn ghost sm" aria-label="Delete entry" onClick={async () => { if (confirm("Delete this entry?")) { await api.del(`/api/symptoms/${s.id}`); load(); } }}>Delete</button>
+            {open === s.id && <div style={{ padding: "0 8px 8px 106px" }}><SymptomRelated sid={s.id} /></div>}
           </li>
         ))}
       </ul>

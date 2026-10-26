@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { api, fmtDateTime } from "../api";
-import { toast } from "../components";
+import { Guide, toast } from "../components";
 
 const Row = ({ title, desc, children }: any) => (
   <div className="row" style={{ justifyContent: "space-between", padding: "16px 0", borderBottom: "1px solid var(--line)", alignItems: "flex-start" }}>
@@ -24,7 +24,8 @@ export default function SettingsPage({ onStatus }: { onStatus: () => void }) {
   const consent = async (agree: boolean) => { await api.post("/api/consent", { agree }); load(); onStatus(); };
   return (
     <div className="page">
-      <div className="head"><div><h1>Settings</h1><div className="sub">Your data stays on this computer.</div></div></div>
+      <div className="head"><div><h1>Settings</h1></div></div>
+      <Guide>Turn the assistant on or off · Export or delete your data · Everything stays on this computer.</Guide>
       <div style={{ borderTop: "1px solid var(--line)" }}>
         <Row title="AI features" desc={`${s.consent ? "On" : "Off"} · ${s.model} via Portkey${s.key_present ? "" : " · no API key found"}. Only the text a button needs is sent.`}>
           {s.consent ? <button className="btn" onClick={() => consent(false)}>Turn off</button> : <button className="btn primary" onClick={() => consent(true)}>Turn on</button>}

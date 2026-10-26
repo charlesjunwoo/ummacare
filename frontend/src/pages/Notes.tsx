@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { api, CATEGORY_LABELS, fmtDate, fmtDateTime, go, SOURCE_LABELS } from "../api";
-import { Connection, NoteDialog, recordHref, SearchBox, toast } from "../components";
+import { Connection, Guide, NoteDialog, recordHref, SearchBox, toast } from "../components";
 
 const monthLabel = (iso: string) => new Date(iso + "T12:00:00").toLocaleDateString(undefined, { month: "long", year: "numeric" });
 
@@ -34,6 +34,7 @@ export function JournalPage() {
         <button className="btn primary" onClick={() => setAdding(true)}>New note</button>
       </div>
 
+      <Guide>“New note” to write, upload or photograph a page · Search finds anything you've saved · Open a note to see related videos and records.</Guide>
       <div className="row toolbar" style={{ marginBottom: 8 }}>
         <SearchBox value={q} onChange={setQ} onEnter={search} placeholder="Search notes, symptoms, videos and records" label="Search everything" />
         <select className="select" value={cat} onChange={(e) => setCat(e.target.value)} aria-label="Filter notes">
@@ -133,6 +134,7 @@ export function NoteDetail({ id }: { id: number }) {
         <h1>{n.title}</h1>
         {!editing && <button className="btn" onClick={() => setEditing(true)}>Edit</button>}
       </div>
+      <Guide>Edit your note anytime (the original is kept) · Related videos and records are listed below.</Guide>
       {n.category === "doctor_instruction" && <p className="hint">What you recorded a doctor said — not verified clinical guidance.</p>}
       {editing ? (
         <>
