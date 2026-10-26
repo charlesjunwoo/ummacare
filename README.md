@@ -35,7 +35,7 @@ everything else works without it — `brew install ffmpeg` on a Mac).
    ```
 
    The first run creates `backend/.venv`, installs packages, and builds the web app.
-3. Open **http://127.0.0.1:8000**.
+3. Open **http://127.0.0.1:8000**. (If port 8000 is busy: `PORT=8001 ./start.sh`.)
 
 The first start loads **synthetic demo records** (invented notes, symptoms, medicines, appointments, all labeled
 "Demo"). Remove them any time in *Settings & privacy*. AI features stay off until you agree to the consent dialog.

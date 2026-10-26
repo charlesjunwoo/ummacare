@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # One command: install if needed, build the web app, and serve everything on http://127.0.0.1:8000
+# (another port: PORT=8001 ./start.sh)
 set -euo pipefail
 cd "$(dirname "$0")"
 
@@ -17,6 +18,7 @@ echo "Building the web app..."
 (cd frontend && npm run build --silent)
 
 echo ""
-echo "UmmaCare is starting: open http://127.0.0.1:8000   (Ctrl-C to stop)"
+PORT="${PORT:-8000}"
+echo "UmmaCare is starting: open http://127.0.0.1:${PORT}   (Ctrl-C to stop)"
 # No --reload: one process, so an edit never spawns duplicate servers.
-exec backend/.venv/bin/python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --app-dir backend
+exec backend/.venv/bin/python -m uvicorn app.main:app --host 127.0.0.1 --port "$PORT" --app-dir backend
