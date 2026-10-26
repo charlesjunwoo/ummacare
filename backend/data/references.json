@@ -1,0 +1,236 @@
+{
+ "note": "Verbatim passages from U.S. government (public domain) patient pages. Retrieved 2026-10-26 by scripts; passage ids are local identifiers for citation.",
+ "passages": [
+  {
+   "id": "NIDDK-HASH-01",
+   "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK)",
+   "title": "Hashimoto's Disease",
+   "section": "What is Hashimoto’s disease?",
+   "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/hashimotos-disease",
+   "condition": "hashimoto",
+   "reviewed": "June 2021",
+   "retrieved": "2026-10-26",
+   "text": "Hashimoto’s disease is an autoimmune disorder that can cause hypothyroidism, or underactive thyroid. Rarely, the disease can cause hyperthyroidism, or overactive thyroid. The thyroid is a small, butterfly-shaped gland in the front of your neck. In people with Hashimoto’s disease • the immune system makes antibodies that attack the thyroid gland • large numbers of white blood cells, which are part of the immune system, build up in the thyroid • the thyroid becomes damaged and can’t make enough thyroid hormones Thyroid hormones control how your body uses energy, so they affect nearly every organ in your body—even the way your heart beats."
+  },
+  {
+   "id": "NIDDK-HASH-02",
+   "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK)",
+   "title": "Hashimoto's Disease",
+   "section": "Does Hashimoto’s disease have another name?",
+   "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/hashimotos-disease",
+   "condition": "hashimoto",
+   "reviewed": "June 2021",
+   "retrieved": "2026-10-26",
+   "text": "Hashimoto’s disease is also called Hashimoto’s thyroiditis, chronic lymphocytic thyroiditis, or autoimmune thyroiditis."
+  },
+  {
+   "id": "NIDDK-HASH-03",
+   "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK)",
+   "title": "Hashimoto's Disease",
+   "section": "How common is Hashimoto’s disease?",
+   "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/hashimotos-disease",
+   "condition": "hashimoto",
+   "reviewed": "June 2021",
+   "retrieved": "2026-10-26",
+   "text": "The number of people who have Hashimoto’s disease in the United States is unknown. However, the disease is the most common cause of hypothyroidism, which affects about 5 in 100 Americans."
+  },
+  {
+   "id": "NIDDK-HASH-04",
+   "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK)",
+   "title": "Hashimoto's Disease",
+   "section": "Who is more likely to have Hashimoto’s disease?",
+   "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/hashimotos-disease",
+   "condition": "hashimoto",
+   "reviewed": "June 2021",
+   "retrieved": "2026-10-26",
+   "text": "Hashimoto’s disease is 4 to 10 times more common in women than men. Although the disease may occur in teens or young women, it more often develops in women ages 30 to 50. Your chance of developing Hashimoto’s disease increases if other family members have the disease. You are more likely to develop Hashimoto’s disease if you have other autoimmune disorders, including • celiac disease, a digestive disorder that damages the small intestine • lupus, a chronic, or long-term, disorder that can affect many parts of the body • rheumatoid arthritis, a disorder that affects the joints • Sjögren’s syndrome, a disease that causes dry eyes and mouth • type 1 diabetes, a disease that occurs when your blood glucose, also called blood sugar, is too high"
+  },
+  {
+   "id": "NIDDK-HASH-05",
+   "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK)",
+   "title": "Hashimoto's Disease",
+   "section": "What are the complications of Hashimoto’s disease?",
+   "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/hashimotos-disease",
+   "condition": "hashimoto",
+   "reviewed": "June 2021",
+   "retrieved": "2026-10-26",
+   "text": "Many people with Hashimoto’s disease develop hypothyroidism. Untreated, hypothyroidism can lead to several health problems, including • high cholesterol • heart disease and heart failure • high blood pressure • myxedema, a rare condition in which the body’s functions slow down to the point that it can threaten your life Left untreated, hypothyroidism can also cause problems during pregnancy."
+  },
+  {
+   "id": "NIDDK-HASH-06",
+   "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK)",
+   "title": "Hashimoto's Disease",
+   "section": "What are the symptoms of Hashimoto’s disease?",
+   "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/hashimotos-disease",
+   "condition": "hashimoto",
+   "reviewed": "June 2021",
+   "retrieved": "2026-10-26",
+   "text": "Many people with Hashimoto’s disease have no symptoms at first. As the disease progresses, you may have one or more of the symptoms of hypothyroidism. Some common symptoms of hypothyroidism include • fatigue • weight gain • trouble tolerating cold • joint and muscle pain • constipation • dry skin or dry, thinning hair • heavy or irregular menstrual periods or fertility problems • slowed heart rate Hashimoto’s disease causes your thyroid to become damaged. Most people with Hashimoto’s disease develop hypothyroidism. Rarely, early in the course of the disease, thyroid damage may lead to the release of too much thyroid hormone into your blood, causing symptoms of hyperthyroidism. Your thyroid may get larger and cause the front of the neck to look swollen. The enlarged thyroid, called a goiter, may create a feeling of fullness in your throat, though it is usually not painful. After many years, or even decades, damage to the thyroid may cause the gland to shrink and the goiter to disappear."
+  },
+  {
+   "id": "NIDDK-HASH-07",
+   "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK)",
+   "title": "Hashimoto's Disease",
+   "section": "What causes Hashimoto’s disease?",
+   "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/hashimotos-disease",
+   "condition": "hashimoto",
+   "reviewed": "June 2021",
+   "retrieved": "2026-10-26",
+   "text": "Researchers don’t know why some people develop Hashimoto’s disease, but a family history of thyroid disease is common. Several factors may play a role, including • genes • viruses, such as hepatitis C Hypothyroidism can also be caused by • some medicines used to treat bipolar disorder or other mental health problems • iodine-containing medicines used to treat abnormal heart rhythm • exposure to toxins, such as nuclear radiation"
+  },
+  {
+   "id": "NIDDK-HASH-08",
+   "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK)",
+   "title": "Hashimoto's Disease",
+   "section": "How do doctors diagnose Hashimoto’s disease?",
+   "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/hashimotos-disease",
+   "condition": "hashimoto",
+   "reviewed": "June 2021",
+   "retrieved": "2026-10-26",
+   "text": "Doctors diagnose Hashimoto’s disease based on • medical history and physical exam. Your doctor will start by taking a medical history and performing a physical exam. In addition to asking about symptoms, the doctor will check your neck for a goiter, which some people with Hashimoto’s disease can develop. • the thyroid hormones T4 (thyroxine) and T3 (triiodothyronine) • thyroid-stimulating hormone, or TSH • thyroid peroxidase antibodies (TPO), a type of thyroid antibody that is present in most people with Hashimoto’s disease You probably won’t need other tests to confirm you have Hashimoto’s disease. However, if your doctor suspects Hashimoto’s disease but you don’t have antithyroid antibodies in your blood, you may have an ultrasound of your thyroid. The ultrasound images can show the size of your thyroid and other features of Hashimoto’s disease. The ultrasound also can rule out other causes of an enlarged thyroid, such as thyroid nodules—small lumps in the thyroid gland."
+  },
+  {
+   "id": "NIDDK-HASH-09",
+   "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK)",
+   "title": "Hashimoto's Disease",
+   "section": "How do doctors treat Hashimoto’s disease?",
+   "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/hashimotos-disease",
+   "condition": "hashimoto",
+   "reviewed": "June 2021",
+   "retrieved": "2026-10-26",
+   "text": "How your doctors treat Hashimoto’s disease usually depends on whether the thyroid is damaged enough to cause hypothyroidism. If you don’t have hypothyroidism, your doctor may choose to simply check your symptoms and thyroid hormone levels regularly. The medicine levothyroxine, which is identical to the natural thyroid hormone thyroxine (T4), is the recommended way to treat hypothyroidism. Prescribed in pill form for many years, this medicine is now also available as a liquid and in a soft gel capsule. These newer formulas may be helpful to people with digestive problems that affect how the thyroid hormone pill is absorbed. Some foods and supplements can affect how well your body absorbs levothyroxine. Examples include grapefruit juice, espresso coffee, soy, and multivitamins that contain iron or calcium. Taking the medicine on an empty stomach can prevent this from happening. Your doctor may ask you to take the levothyroxine in the morning, 30 to 60 minutes before you eat your first meal. Your doctor will give you a blood test about 6 to 8 weeks after you begin taking the medicine and adjust your dose if needed. Each time you change your dose, you’ll have another blood test. Once you’ve reached a dose that’s working for you, your doctor will likely repeat the blood test in 6 months and then once a year. Never stop taking your medicine or take a higher dose without talking with your doctor first. Taking too much thyroid hormone medicine can cause serious problems, such as atrial fibrillation or osteoporosis. Your hypothyroidism can be well-controlled with thyroid hormone medicine, as long as you take the medicine as instructed by your doctor and have regular follow-up blood tests."
+  },
+  {
+   "id": "NIDDK-HASH-10",
+   "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK)",
+   "title": "Hashimoto's Disease",
+   "section": "How does eating, diet, and nutrition affect Hashimoto’s disease?",
+   "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/hashimotos-disease",
+   "condition": "hashimoto",
+   "reviewed": "June 2021",
+   "retrieved": "2026-10-26",
+   "text": "The thyroid uses iodine, a mineral in some foods, to make thyroid hormones. However, if you have Hashimoto’s disease or other types of autoimmune thyroid disorders, you may be sensitive to harmful side effects from iodine. Eating foods that have large amounts of iodine—such as kelp, dulse, or other kinds of seaweed, and certain iodine-rich medicines—may cause hypothyroidism or make it worse. Taking iodine supplements can have the same effect. Talk with members of your health care team about • what foods and beverages to limit or avoid • whether you take iodine supplements • any cough syrups you take that may contain iodine However, if you are pregnant, you need to take enough iodine because the baby gets iodine from your diet. Too much iodine can cause problems as well, such as a goiter in the baby. If you are pregnant, talk with your doctor about how much iodine you need. Researchers are looking at other ways in which diet and supplements—such as vitamin D and selenium—may affect Hashimoto’s disease. However, no specific guidance is currently available."
+  },
+  {
+   "id": "NIAMS-SJO-01",
+   "publisher": "National Institute of Arthritis and Musculoskeletal and Skin Diseases (NIAMS)",
+   "title": "Sjögren's Disease: Overview, Symptoms, & Causes",
+   "section": "Overview of Sjögren’s Disease",
+   "url": "https://www.niams.nih.gov/health-topics/sjogrens-disease",
+   "condition": "sjogren",
+   "reviewed": "June 2024",
+   "retrieved": "2026-10-26",
+   "text": "Sjögren’s disease, also known as Sjögren’s and Sjögren’s syndrome, is a chronic (long-lasting) autoimmune disorder that happens when the immune system attacks the glands that make moisture in the eyes, mouth, and other parts of the body. The main symptoms are dry eyes and mouth, but other parts of the body may be affected as well, with many people reporting fatigue and joint and muscle pain. In addition, the disease can damage the lungs, kidneys, and nervous system. Sjögren’s disease predominantly affects women. Sjögren’s disease can occur by itself or alongside other autoimmune conditions such as rheumatoid arthritis, systemic lupus erythematosus (lupus), or Raynaud’s phenomenon. There is no cure for Sjögren’s disease, but there are several ways to treat and manage the symptoms."
+  },
+  {
+   "id": "NIAMS-SJO-02",
+   "publisher": "National Institute of Arthritis and Musculoskeletal and Skin Diseases (NIAMS)",
+   "title": "Sjögren's Disease: Overview, Symptoms, & Causes",
+   "section": "Who Gets Sjögren’s Disease?",
+   "url": "https://www.niams.nih.gov/health-topics/sjogrens-disease",
+   "condition": "sjogren",
+   "reviewed": "June 2024",
+   "retrieved": "2026-10-26",
+   "text": "Most people with Sjögren’s disease are women. It can start at any age, but it is most common in people in their 40s and 50s. It occurs across all racial and ethnic backgrounds."
+  },
+  {
+   "id": "NIAMS-SJO-03",
+   "publisher": "National Institute of Arthritis and Musculoskeletal and Skin Diseases (NIAMS)",
+   "title": "Sjögren's Disease: Overview, Symptoms, & Causes",
+   "section": "Symptoms of Sjögren’s Disease",
+   "url": "https://www.niams.nih.gov/health-topics/sjogrens-disease",
+   "condition": "sjogren",
+   "reviewed": "June 2024",
+   "retrieved": "2026-10-26",
+   "text": "Sjögren’s disease may have different effects on the body, and the symptoms vary from person to person. In some people, symptoms cycle between mild and severe. Common symptoms include: • Dry eyes. Your eyes may burn or itch or feel like they have sand in them. Sometimes, the dryness causes blurry vision or sensitivity to bright light. You may get irritated, itchy eyelids due to inflammation. • Dry mouth. Your mouth may feel chalky, and you may have trouble swallowing, speaking, and tasting. Because you lack the protective effects of saliva, you may develop more dental decay (cavities) and mouth infections, such as candidiasis (also called thrush). In some people, the main problem is dry mouth, while for others it is dry eyes, and some people experience both problems equally. In some cases, Sjögren’s disease affects other tissues and organs and has more widespread effects on the body. These other effects may cause: • Fatigue. • Joint pain. • Dry skin. • Dry nasal passages and throat, and a dry cough. • Skin rashes. • Muscle aches. • Acid reflux. • Vaginal dryness. • Swelling of the glands around the face and neck. • Trouble sleeping. • Poor concentration and memory problems. • Numbness, tingling, and weakness, especially in the extremities. • Shortness of breath or trouble breathing. • Muscle weakness. The symptoms can be severe, with some people reporting debilitating pain and fatigue. People with Sjögren’s disease have a higher chance of developing a type of cancer called lymphoma, but the risk of developing it is low."
+  },
+  {
+   "id": "NIAMS-SJO-04",
+   "publisher": "National Institute of Arthritis and Musculoskeletal and Skin Diseases (NIAMS)",
+   "title": "Sjögren's Disease: Overview, Symptoms, & Causes",
+   "section": "Causes of Sjögren’s Disease",
+   "url": "https://www.niams.nih.gov/health-topics/sjogrens-disease",
+   "condition": "sjogren",
+   "reviewed": "June 2024",
+   "retrieved": "2026-10-26",
+   "text": "Sjögren’s disease is an autoimmune disorder that happens when the immune system attacks healthy tissues. Normally, the immune system protects the body from infection and disease. Researchers do not know what causes the immune system to turn on the body, but they believe that both genetic and environmental factors are involved. Studies have linked Sjögren’s disease to variants (changes) in several genes, many of which are involved in immunity. In Sjögren’s disease, the immune system attacks the glands that make tears and saliva. The resulting inflammation damages the glands, limiting their production of the fluids that normally keep the eyes and mouth moist. In some cases, the immune system attacks additional parts of the body, damaging other organs and tissues and causing a range of other symptoms."
+  },
+  {
+   "id": "NIAMS-SJOTX-01",
+   "publisher": "National Institute of Arthritis and Musculoskeletal and Skin Diseases (NIAMS)",
+   "title": "Sjögren's Disease: Diagnosis, Treatment, & Steps to Take",
+   "section": "Diagnosis of Sjögren’s Disease",
+   "url": "https://www.niams.nih.gov/health-topics/sjogrens-disease/diagnosis-treatment-and-steps-to-take",
+   "condition": "sjogren",
+   "reviewed": "June 2024",
+   "retrieved": "2026-10-26",
+   "text": "There is no single test for Sjögren’s disease, so doctors will typically ask about your symptoms and conduct a series of tests to diagnose the disorder. A rheumatologist (a specialist in autoimmune diseases) may diagnose the disease. However, an ophthalmologist (eye doctor) or a dentist may also perform certain tests to help make the diagnosis. The diagnosis is based on how well the tear and salivary glands are working and whether there is evidence of autoimmunity. To diagnose Sjögren’s disease, your doctor may ask about your medical history, including about dryness in your eyes and mouth, such as when it started and whether you feel it every day. Your doctor may also order the following tests. • Eye tests to see if you produce a normal amount of tears, and to find out if there has been any damage to your eyes due to dryness. • Salivary gland tests can measure how much saliva your mouth produces. Ultrasound imaging and biopsy can help determine if the salivary gland tissues are altered by inflammation. • Blood tests can identify antibodies that are typically present in people with Sjögren’s disease and other autoimmune disorders. While the presence of these antibodies can help doctors diagnose Sjögren’s disease, this alone cannot diagnose the disorder because these antibodies may be present in healthy individuals and people with other disorders as well. Your doctor may order other laboratory or imaging tests to determine if another disease or problem is causing your symptoms."
+  },
+  {
+   "id": "NIAMS-SJOTX-02",
+   "publisher": "National Institute of Arthritis and Musculoskeletal and Skin Diseases (NIAMS)",
+   "title": "Sjögren's Disease: Diagnosis, Treatment, & Steps to Take",
+   "section": "Treatment of Sjögren’s Disease",
+   "url": "https://www.niams.nih.gov/health-topics/sjogrens-disease/diagnosis-treatment-and-steps-to-take",
+   "condition": "sjogren",
+   "reviewed": "June 2024",
+   "retrieved": "2026-10-26",
+   "text": "There is no cure for Sjögren’s disease, so treatment focuses on relieving symptoms and preventing complications. Treatments are different for each person and will depend on which parts of the body are affected. Your treatment plan will likely include a combination of self-management approaches and over-the-counter and prescription medications. Be sure to tell your doctor which medications you are currently taking because some make eye and mouth dryness worse."
+  },
+  {
+   "id": "NIAMS-SJOTX-03",
+   "publisher": "National Institute of Arthritis and Musculoskeletal and Skin Diseases (NIAMS)",
+   "title": "Sjögren's Disease: Diagnosis, Treatment, & Steps to Take",
+   "section": "Eye Treatments",
+   "url": "https://www.niams.nih.gov/health-topics/sjogrens-disease/diagnosis-treatment-and-steps-to-take",
+   "condition": "sjogren",
+   "reviewed": "June 2024",
+   "retrieved": "2026-10-26",
+   "text": "• Eye drops (artificial tears). There are many different types of eye drops, and you may have to try a few to find the one that works best for you. Some people need prescription eye drops that contain medications to suppress the immune system and reduce inflammation in the eye. • Eye ointments. These are thicker than eye drops and keep the eyes wet for several hours. They can blur your vision, so most people use them while they sleep. • Plugs to block the tear ducts. Small plugs placed in the tear duct in the corners of the eyes block drainage and keep tears in the eyes longer. The procedure only takes a few minutes and is done in an ophthalmologist’s (eye doctor’s) office."
+  },
+  {
+   "id": "NIAMS-SJOTX-04",
+   "publisher": "National Institute of Arthritis and Musculoskeletal and Skin Diseases (NIAMS)",
+   "title": "Sjögren's Disease: Diagnosis, Treatment, & Steps to Take",
+   "section": "Mouth Treatments",
+   "url": "https://www.niams.nih.gov/health-topics/sjogrens-disease/diagnosis-treatment-and-steps-to-take",
+   "condition": "sjogren",
+   "reviewed": "June 2024",
+   "retrieved": "2026-10-26",
+   "text": "• Artificial saliva. Using a saliva substitute prescribed by a doctor helps to make the mouth feel wet. • Saliva production stimulators. These medications cause salivary glands to make more saliva and also stimulate tear production. • Anti-fungal medications. These medications treat fungal infections, such as candidiasis (also called thrush), which are more common in people with dry mouths."
+  },
+  {
+   "id": "NIAMS-SJOTX-05",
+   "publisher": "National Institute of Arthritis and Musculoskeletal and Skin Diseases (NIAMS)",
+   "title": "Sjögren's Disease: Diagnosis, Treatment, & Steps to Take",
+   "section": "Treatments for Other Problems Related to Sjögren’s Disease",
+   "url": "https://www.niams.nih.gov/health-topics/sjogrens-disease/diagnosis-treatment-and-steps-to-take",
+   "condition": "sjogren",
+   "reviewed": "June 2024",
+   "retrieved": "2026-10-26",
+   "text": "• Over-the-counter or prescribed pain relievers. These medicines alleviate joint and muscle pain, and discomfort from swollen glands. • Disease-modifying anti-rheumatic drugs (DMARDs) and anti-malarial drugs are often prescribed in people with joint pain, rashes, and other serious effects of the disease. While these medicines have not specifically been approved for Sjögren’s disease, they may be helpful in some people with the disorder. • Corticosteroids. These medications help control inflammation and pain. Because they are potent drugs, your doctor will prescribe the lowest dose possible to achieve the desired benefit. They are usually reserved for people with rare, serious effects of the disorder. • Acid reflux medications. Reduced saliva production may raise the stomach’s acidity in people with Sjögren’s disease. Some people may take these medicines to counteract this effect."
+  },
+  {
+   "id": "NIAMS-SJOTX-06",
+   "publisher": "National Institute of Arthritis and Musculoskeletal and Skin Diseases (NIAMS)",
+   "title": "Sjögren's Disease: Diagnosis, Treatment, & Steps to Take",
+   "section": "Who Treats Sjögren’s Disease?",
+   "url": "https://www.niams.nih.gov/health-topics/sjogrens-disease/diagnosis-treatment-and-steps-to-take",
+   "condition": "sjogren",
+   "reviewed": "June 2024",
+   "retrieved": "2026-10-26",
+   "text": "Sjögren’s disease is primarily treated by: • Rheumatologists, doctors who treat diseases of the joints, muscles, and bones, and who are also specialists in autoimmune diseases. Other specialists who may be involved in your care include: • Dentists, who care for your gums and teeth. • Mental health professionals, who can help people cope with difficulties in the home and workplace that may result from their medical conditions. • Nephrologists, who treat kidney disease problems. • Neurologists, who specialize in treating diseases of the nervous system, which includes the brain and spinal cord. • Ophthalmologists, who specialize in the care of the eyes. • Otolaryngologists, who specialize in caring for the ears, nose, and throat. • Primary care doctors, such as family physicians or internal medicine specialists, who coordinate care between the different health care providers and treat other problems as they arise. • Pulmonologists, who specialize in treating diseases of the lungs."
+  },
+  {
+   "id": "NIAMS-SJOTX-07",
+   "publisher": "National Institute of Arthritis and Musculoskeletal and Skin Diseases (NIAMS)",
+   "title": "Sjögren's Disease: Diagnosis, Treatment, & Steps to Take",
+   "section": "Living With Sjögren’s Disease",
+   "url": "https://www.niams.nih.gov/health-topics/sjogrens-disease/diagnosis-treatment-and-steps-to-take",
+   "condition": "sjogren",
+   "reviewed": "June 2024",
+   "retrieved": "2026-10-26",
+   "text": "The symptoms of Sjögren’s disease can be managed, and most people can expect to live a normal life. The following tips can make living with Sjögren’s disease easier. Caring for your eyes. • Protect your eyes from drafts, breezes, and smoky rooms. • Have your glasses fitted with shields on the sides, or use wraparound glasses. • Do not use eye drops that irritate your eyes. If one brand or prescription bothers you, try another. Eye drops that do not contain preservatives are usually essential if you use them four or more times per day on a regular basis. • Put humidifiers in the rooms where you spend the most time, including the bedroom, or install a humidifier in the heating and air conditioning unit of your home. • If you get blepharitis (eyelid inflammation), use warm compresses on your eyes to alleviate the discomfort. You may also gently wash the eyelids with a dilute solution of a mild detergent such as baby shampoo. Caring for your mouth. • Brush and floss your teeth regularly. There are some kinds of toothpaste designed for people with dry mouths. Most people should use toothpaste with fluoride to help prevent cavities. • Carry a water bottle and sip on it throughout the day to keep your mouth moist. Keeping hydrated will also help combat dry eyes. • Chewing gum or sucking on hard candy helps your glands make more saliva. Try to use sugar-free gum and candy. • Visit a dentist at least twice a year to have your teeth examined and cleaned. Ask your dentist about fluoride treatments. • See your doctor or dentist if you have symptoms of candidiasis (also called thrush), such as burning, soreness, and white patches inside your mouth. Managing other Sjögren’s disease-related symptoms. • Moisturize other dry areas. • For dry skin, moisturize your skin regularly, especially with products made for extra dry skin. • Use lip balms, such as those containing petroleum jelly, for dry lips. • Use products such as vaginal moisturizers or estrogen creams for vaginal dryness. • Use saline sprays to help with dry nose. • Educate yourself and get support. • Learn as much as you can about the disease and talk with others who are dealing with it by joining a support group. Having a support network can help you manage difficult times. • Having a long-term condition can be challenging, so visit a mental health professional if emotional problems arise. • Maintain a healthy weight and watch what you eat to help control acid reflux. Eat slowly and avoid common triggers such as fried and fatty foods, tomato sauce, and onions. • Eat a healthy and balanced diet, and exercise regularly to help combat fatigue and to help you sleep better. Check with your doctor before beginning an exercise routine. Remember to visit your health care providers regularly and to follow their recommendations."
+  }
+ ]
+}

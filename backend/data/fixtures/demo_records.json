@@ -1,0 +1,54 @@
+{
+  "_label": "SYNTHETIC DEMO FIXTURE. Invented records for testing UmmaCare. Not real patient data. Not medical advice.",
+  "notes": [
+    {"category": "diet_lifestyle", "recorded_on": "2026-08-12", "source": "typed", "source_detail": "copied from paper notebook, p.3",
+     "title": "Gluten-free idea from a video",
+     "text": "Watched a YouTube doctor say a gluten-free diet can reverse Hashimoto's and bring antibodies down. Thinking of cutting out bread and noodles for two weeks to see if my energy improves."},
+    {"category": "doctor_instruction", "recorded_on": "2026-08-20", "source": "typed", "source_detail": "written after visit with Dr. Kim (endocrinology)",
+     "title": "Dr. Kim: how to take levothyroxine",
+     "text": "Dr. Kim said: take levothyroxine every morning on an empty stomach, then wait 30 to 60 minutes before breakfast or coffee. Recheck TSH blood test in 6 to 8 weeks. She said there is no special diet needed for Hashimoto's unless I have celiac disease, and going gluten-free will not cure it."},
+    {"category": "video_or_article", "recorded_on": "2026-09-02", "source": "typed", "source_detail": "notebook summary of an eye-doctor video",
+     "title": "Why my eyes are dry (Sjögren's)",
+     "text": "Eye doctor video: in Sjögren's the immune system attacks the tear glands, so the eyes get dry, gritty and burn. If using drops many times a day, pick preservative-free ones. Small plugs in the tear ducts can keep tears in longer - ask about this."},
+    {"category": "symptom_observation", "recorded_on": "2026-09-15", "source": "typed", "source_detail": "notes app",
+     "title": "Afternoon tiredness and brain fog",
+     "text": "Afternoons are the worst. So tired after lunch I have to lie down for an hour. Brain fog too - I lose words in the middle of sentences. Mornings are a little better."},
+    {"category": "personal_question", "recorded_on": "2026-09-28", "source": "typed", "source_detail": "notes app",
+     "title": "Thyroid or Sjögren's tiredness?",
+     "text": "Is my tiredness from the thyroid or from Sjögren's? Can the doctors tell the difference? Would a blood test show it?"},
+    {"category": "diet_lifestyle", "recorded_on": "2026-10-05", "source": "typed", "source_detail": "notes app",
+     "title": "Coffee with my morning pill",
+     "text": "I started drinking my coffee right after my thyroid pill because waiting is hard. A friend said coffee doesn't matter."},
+    {"category": "video_or_article", "recorded_on": "2026-10-10", "source": "typed", "source_detail": "notebook",
+     "title": "Selenium for thyroid antibodies?",
+     "text": "A video said selenium supplements lower thyroid antibodies in Hashimoto's. Should I take selenium? Want to ask."}
+  ],
+  "symptoms": [
+    {"symptom": "fatigue", "occurred_on": "2026-09-10", "severity": 6, "duration": "most of the afternoon", "context": "after lunch", "details": "Needed to nap."},
+    {"symptom": "fatigue", "occurred_on": "2026-09-15", "severity": 7, "duration": "all day", "context": "after a busy weekend", "details": "Hard to concentrate, lost words."},
+    {"symptom": "dry eyes", "occurred_on": "2026-09-22", "severity": 5, "duration": "3 hours", "context": "windy walk outside", "details": "Gritty, burning feeling."},
+    {"symptom": "dry mouth", "occurred_on": "2026-10-01", "severity": 4, "duration": "evening", "context": "talking a lot at church", "details": "Hard to swallow crackers."},
+    {"symptom": "fatigue", "occurred_on": "2026-10-08", "severity": 8, "duration": "all day", "context": "slept badly", "details": "Stayed in bed until noon."},
+    {"symptom": "joint pain", "occurred_on": "2026-10-14", "severity": 3, "duration": "1 hour", "context": "morning", "details": "Stiff fingers when opening jars."},
+    {"symptom": "brain fog", "occurred_on": "2026-10-18", "severity": 6, "duration": "afternoon", "context": "after lunch", "details": "Forgot why I walked into the kitchen twice."},
+    {"symptom": "dry eyes", "occurred_on": "2026-10-21", "severity": 6, "duration": "evening", "context": "reading on the tablet", "details": "Used drops 5 times."},
+    {"symptom": "fatigue", "occurred_on": "2026-10-24", "severity": 5, "duration": "afternoon", "context": "after lunch", "details": ""}
+  ],
+  "questions": [
+    {"text": "I am still tired in the afternoons. Is it time to recheck my TSH?", "created_at": "2026-09-16T12:00:00+00:00"},
+    {"text": "Would tear-duct plugs help my dry eyes?", "created_at": "2026-09-03T12:00:00+00:00"}
+  ],
+  "medications": [
+    {"name": "Levothyroxine", "instruction_text": "Take 1 tablet by mouth every morning on an empty stomach, 30-60 minutes before breakfast. (Typed from the pharmacy label.)",
+     "schedules": [
+       {"dose_text": "50 mcg", "times": ["07:00"], "days": "daily", "starts_on": "2026-08-21", "ends_on": "2026-09-30", "change_reason": "Started by Dr. Kim"},
+       {"dose_text": "75 mcg", "times": ["07:00"], "days": "daily", "starts_on": "2026-10-01", "ends_on": null, "change_reason": "Dr. Kim changed the dose after a blood test (as I recorded it)"}
+     ]},
+    {"name": "Preservative-free artificial tears", "instruction_text": "1 drop in each eye 4 times a day (from eye clinic handout).",
+     "schedules": [{"dose_text": "1 drop each eye", "times": ["08:00", "12:00", "16:00", "20:00"], "days": "daily", "starts_on": "2026-09-05", "ends_on": null, "change_reason": "Eye clinic handout"}]}
+  ],
+  "appointments": [
+    {"title": "Endocrinology follow-up", "clinician": "Dr. Kim", "location": "Thyroid Clinic, 2nd floor", "starts_at": "2026-11-06T10:30", "duration_min": 30, "status": "confirmed", "notes": "Clinic called to confirm on 10/20."},
+    {"title": "Rheumatology consult (Sjögren's)", "clinician": "Dr. Patel", "location": "", "starts_at": "2026-11-20T14:00", "duration_min": 45, "status": "requested", "booking_link": "https://example.org/booking-demo", "request_text": "Requested via the clinic's online form on 10/22. Waiting for a call back."}
+  ]
+}

@@ -1,0 +1,103 @@
+{
+ "prices_per_million": {
+  "input": 0.1,
+  "cached_input": 0.01,
+  "output": 0.5
+ },
+ "per_workflow": {
+  "analyze_video": {
+   "runs_measured": 9,
+   "avg_input": 2423,
+   "avg_cached_input": 1484,
+   "avg_output": 666,
+   "avg_requests": 1.0,
+   "median_latency_s": 6.7,
+   "avg_cost_usd": 0.00044173333333333335
+  },
+  "connect_video": {
+   "runs_measured": 10,
+   "avg_input": 7064,
+   "avg_cached_input": 1442,
+   "avg_output": 2068,
+   "avg_requests": 1.2,
+   "median_latency_s": 14.9,
+   "avg_cost_usd": 0.00161065
+  },
+  "connect_record": {
+   "runs_measured": 1,
+   "avg_input": 2655,
+   "avg_cached_input": 0,
+   "avg_output": 707,
+   "avg_requests": 1.0,
+   "median_latency_s": 6.9,
+   "avg_cost_usd": 0.000619
+  },
+  "chat": {
+   "runs_measured": 15,
+   "avg_input": 4825,
+   "avg_cached_input": 3707,
+   "avg_output": 264,
+   "avg_requests": 2.13,
+   "median_latency_s": 5.5,
+   "avg_cost_usd": 0.0002811066666666667
+  },
+  "draft_brief": {
+   "runs_measured": 1,
+   "avg_input": 1305,
+   "avg_cached_input": 0,
+   "avg_output": 375,
+   "avg_requests": 1.0,
+   "median_latency_s": 4.1,
+   "avg_cost_usd": 0.000318
+  },
+  "read_note_image": {
+   "runs_measured": 2,
+   "avg_input": 2073,
+   "avg_cached_input": 1947,
+   "avg_output": 198,
+   "avg_requests": 1.0,
+   "median_latency_s": 4.1,
+   "avg_cost_usd": 0.00013079999999999998
+  },
+  "extract_medication": {
+   "runs_measured": 1,
+   "avg_input": 835,
+   "avg_cached_input": 0,
+   "avg_output": 70,
+   "avg_requests": 1.0,
+   "median_latency_s": 2.3,
+   "avg_cost_usd": 0.0001185
+  },
+  "read_document": {
+   "runs_measured": 2,
+   "avg_input": 1104,
+   "avg_cached_input": 0,
+   "avg_output": 414,
+   "avg_requests": 1.0,
+   "median_latency_s": 4.3,
+   "avg_cost_usd": 0.00031715
+  }
+ },
+ "monthly_activity_assumption": {
+  "analyze_video": 10,
+  "connect_video": 12,
+  "connect_record": 15,
+  "chat": 30,
+  "draft_brief": 2,
+  "read_note_image": 3,
+  "extract_medication": 1,
+  "read_document": 2
+ },
+ "typical_video_session_usd": 0.00261,
+ "per_user_month_usd": 0.0432,
+ "per_user_month_tokens": {
+  "avg_input": 305445,
+  "avg_cached_input": 149195,
+  "avg_output": 52243
+ },
+ "users_100_month_usd": 4.32,
+ "users_10000_month_usd": 432.45,
+ "local_cache_hits_in_log": 1,
+ "rows_total": 43,
+ "rows_measured": 41
+}

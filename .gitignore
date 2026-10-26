@@ -1,0 +1,14 @@
+# secrets
+.env
+.env.*
+!.env.example
+# runtime data: real personal health records and uploads never go to git
+backend/data/runtime/
+# environments and builds
+backend/.venv/
+__pycache__/
+*.pyc
+frontend/node_modules/
+frontend/dist/
+.DS_Store
+scripts/__pycache__/

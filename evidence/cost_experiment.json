@@ -1,0 +1,113 @@
+{
+ "note": "Measured with the real model; 2 trials per setting. 'low' is what UmmaCare ships.",
+ "trials": [
+  {
+   "effort": "low",
+   "trial": 1,
+   "moments": {
+    "requests": 1,
+    "input": 1286,
+    "cached": 0,
+    "output": 689,
+    "reasoning": 0,
+    "latency_s": 6.87,
+    "cost_usd": 0.000473,
+    "n_moments": 4,
+    "found_gluten_claim": true
+   },
+   "connections": {
+    "requests": 1,
+    "input": 5240,
+    "cached": 0,
+    "output": 1779,
+    "reasoning": 0,
+    "latency_s": 13.12,
+    "cost_usd": 0.001414,
+    "n_connections": 8,
+    "found_known_conflict": true,
+    "valid_first_try": true
+   }
+  },
+  {
+   "effort": "low",
+   "trial": 2,
+   "moments": {
+    "requests": 1,
+    "input": 1286,
+    "cached": 1160,
+    "output": 701,
+    "reasoning": 0,
+    "latency_s": 6.31,
+    "cost_usd": 0.000375,
+    "n_moments": 4,
+    "found_gluten_claim": true
+   },
+   "connections": {
+    "requests": 1,
+    "input": 5240,
+    "cached": 5114,
+    "output": 1681,
+    "reasoning": 0,
+    "latency_s": 21.14,
+    "cost_usd": 0.000904,
+    "n_connections": 7,
+    "found_known_conflict": true,
+    "valid_first_try": true
+   }
+  },
+  {
+   "effort": "medium",
+   "trial": 1,
+   "moments": {
+    "requests": 1,
+    "input": 1286,
+    "cached": 0,
+    "output": 948,
+    "reasoning": 230,
+    "latency_s": 7.28,
+    "cost_usd": 0.000603,
+    "n_moments": 4,
+    "found_gluten_claim": true
+   },
+   "connections": {
+    "requests": 1,
+    "input": 5240,
+    "cached": 0,
+    "output": 2685,
+    "reasoning": 1008,
+    "latency_s": 17.32,
+    "cost_usd": 0.001867,
+    "n_connections": 8,
+    "found_known_conflict": true,
+    "valid_first_try": true
+   }
+  },
+  {
+   "effort": "medium",
+   "trial": 2,
+   "moments": {
+    "requests": 1,
+    "input": 1286,
+    "cached": 1160,
+    "output": 678,
+    "reasoning": 0,
+    "latency_s": 6.16,
+    "cost_usd": 0.000363,
+    "n_moments": 4,
+    "found_gluten_claim": true
+   },
+   "connections": {
+    "requests": 1,
+    "input": 5240,
+    "cached": 5114,
+    "output": 2375,
+    "reasoning": 516,
+    "latency_s": 14.88,
+    "cost_usd": 0.001251,
+    "n_connections": 8,
+    "found_known_conflict": true,
+    "valid_first_try": true
+   }
+  }
+ ]
+}
