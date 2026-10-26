@@ -312,9 +312,10 @@ label copier left clock times empty because the label didn't state them; the pho
 human review; FTS retrieval can miss relevant passages, which makes some true claims “not established”; and a determined user can always type misinformation into her own notes.</p>
 
 <h2>7. Impact</h2>
-<p class="callout"><b>Pilot test (October 26, 2026).</b> One real user tried UmmaCare on their own and wrote notes on what worked and what didn't.
-No task times were recorded, so I report their findings and the changes they caused — not time saved. Every change was re-checked in the browser.</p>
-<table><tr><th>What the pilot user noted</th><th>What I changed</th><th>Checked</th></tr>
+<p class="callout"><b>Pilot test (October 26, 2026).</b> My sister tried UmmaCare on her own and wrote notes on what worked and what didn't. She is a real
+user, but not the primary one — my mother has not tested it yet. No task times were recorded, so I report her findings and the changes they caused, not time saved.
+Every change was re-checked in the browser.</p>
+<table><tr><th>What my sister noted</th><th>What I changed</th><th>Checked</th></tr>
 <tr><td>Wanted short instructions at the top of each page.</td><td>A one-line guide on every page (Calendar, Journal, Discovery, Records, Settings, note, source and record detail).</td><td>Present on all 7 page types</td></tr>
 <tr><td>After saving a symptom: “1 related record found”, but no way to see it — “cannot tell if this is useful”.</td><td>Related videos, notes and records are now shown, with links, in the save dialog, the Symptoms list and the calendar day.</td><td>New symptom → 3 linked items shown in the dialog</td></tr>
 <tr><td>Marking a connection “correct” didn't seem to do anything; “Not relevant” and “save for doctor” made sense.</td><td>Removed “Correct”; kept “Not relevant” and “Save question for doctor” on notes and symptoms.</td><td>No “Correct” buttons remain</td></tr>
@@ -333,7 +334,7 @@ No task times were recorded, so I report their findings and the changes they cau
 <tr><td>Cost to run for one person</td><td>≈{money(tok['per_user_month_usd'])}/month of model usage</td></tr>
 </table>
 <p><b>What is newly possible:</b> an idea she meets in a video, article or thread is linked to the dated note, symptom or test result it relates to, with the source one click away.
-<b>Still to measure:</b> task times against her notebook (worksheet baseline B2 vs. task 7).</p>
+<b>Still to do:</b> a timed session with my mother (worksheet baseline B2 vs. task 7).</p>
 
 <h2>8. Limits and next steps</h2>
 <p><b>What doesn't work yet.</b></p>
@@ -343,7 +344,7 @@ No task times were recorded, so I report their findings and the changes they cau
 <li><b>No frames from YouTube links.</b> By design (YouTube's terms); real frames require her own copy of the video. Most cards will be text-only.</li>
 <li><b>Reference coverage is tiny</b> (21 passages from two pages), so many claims are “not established”, sometimes even when a broader source would support them (e.g. “low hormone levels can cause fatigue” was not matched to the symptom passage).</li>
 <li><b>Connection quality varies.</b> Some “related” links are loose; “Not relevant” removes them, but I haven't measured precision on real notes.</li>
-<li><b>No timed user test yet.</b> The pilot produced written feedback, not task times; the before/after search-time comparison is still to do.</li>
+<li><b>No test with the primary user yet.</b> My sister's pilot produced written feedback, not task times; a timed session with my mother is next.</li>
 <li><b>No real booking or purchasing</b>; appointment and order requests are drafts she sends or places herself. Scanned multi-page PDFs are read only from their first 3 page images.</li>
 <li>Single user, local only, no login or encryption at rest; the demo runs on synthetic records.</li>
 <li><b>No user testing yet</b> — the biggest gap.</li>
@@ -424,7 +425,7 @@ slides = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><title>U
 <li><b>{passed}/{len(tests)}</b> automated checks passed</li></ul></div></div></section>
 
 <section><h2>Pilot test → changes</h2>
-<p class="warn"><b>One real user tried it and wrote notes.</b> No task times yet — findings and fixes only.</p>
+<p class="warn"><b>My sister tested it and wrote notes.</b> No task times yet; my mother's test is next.</p>
 <div class="cols"><ul class="small" style="font-size:0.72em">
 <li>“1 related record found” but couldn't see it → related items now <b>shown with links</b></li>
 <li>“Correct” did nothing visible → <b>removed</b>; kept “Not relevant” + “Save question”</li>
@@ -435,7 +436,7 @@ slides = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><title>U
 <img src="{crop('26_symptoms_related_open.png', (0.28, 0.25, 0.86, 0.95), 900)}"></div></section>
 
 <section><h2>Next steps</h2><ul>
-<li>User test with Umma (9 tasks, timed against her notebook)</li>
+<li>Timed test with Umma (worksheet tasks, against her notebook)</li>
 <li>Bigger vetted reference set; measure connection precision</li>
 <li>Opt-in speech-to-text with visible cost</li>
 <li>Korean-language mode · phone-friendly symptom logging · encrypted storage</li></ul>
